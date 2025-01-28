@@ -12,7 +12,7 @@ public class Customer {
     private final List<Booking> bookings = new ArrayList<>();
     
     // TODO: implement constructor here
-    public Customer(int id, String name, String phone, List<Booking> bookings) {
+    public Customer(int id, String name, String phone) {
     	this.id = id;
     	this.name = name;
     	this.phone = phone;    	
@@ -42,7 +42,6 @@ public class Customer {
     public void setPhone(String string) {
     	this.phone = string;
     }
-    
     
     public void addBooking(Booking booking) {
         // TODO: implementation here
