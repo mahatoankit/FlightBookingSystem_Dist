@@ -24,4 +24,21 @@ public class Booking {
     public void setCustomer(int id, String name, String phone) {
     	this.customer = new customer(id, name, phone);
     }
+    
+    public Flight getFlight() {
+    	return flight;
+    }
+    
+    public void setFlight(Flight flight) {
+    	this.flight = flight;
+    }
+    
+    public LocalDate getBookingDate() {
+    	return bookingDate;
+    }
+    
+    public void setBookingDate(LocalDate bookingDate) {
+    	this.bookingDate = bookingDate;
+    }
+    
 }
