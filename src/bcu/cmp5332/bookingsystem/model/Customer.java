@@ -12,8 +12,37 @@ public class Customer {
     private final List<Booking> bookings = new ArrayList<>();
     
     // TODO: implement constructor here
+    public Customer(int id, String name, String phone, List<Booking> bookings) {
+    	this.id = id;
+    	this.name = name;
+    	this.phone = phone;    	
+    }
     
     // TODO: implementation of Getter and Setter methods
+    public int getId() {
+    	return id;
+    }
+    
+    public void setId(int value) {
+    	this.id = value;
+    }
+    
+    public String getName() {
+    	return name;
+    }
+    
+    public void setName(String string) {
+    	this.name = string;
+    }
+    
+    public String getPhone() {
+    	return phone;
+    }
+    
+    public void setPhone(String string) {
+    	this.phone = string;
+    }
+    
     
     public void addBooking(Booking booking) {
         // TODO: implementation here

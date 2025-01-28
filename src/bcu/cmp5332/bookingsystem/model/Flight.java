@@ -79,23 +79,8 @@ public class Flight {
     }
 
     public String getDetailsLong() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        StringBuilder details = new StringBuilder();
-        details.append("Flight #").append(id).append(" - ").append(flightNumber).append("\n");
-        details.append("Origin: ").append(origin).append("\n");
-        details.append("Destination: ").append(destination).append("\n");
-        details.append("Departure Date: ").append(departureDate.format(dtf)).append("\n");
-        details.append("Passengers:\n");
-
-        if (passengers.isEmpty()) {
-            details.append("  No passengers booked.\n");
-        } else {
-            for (Customer passenger : passengers) {
-                details.append("  - ").append(passenger.getDetailsShort()).append("\n");
-            }
-        }
-
-        return details.toString();
+        // TODO: implementation here
+        return null;
     }
     
     public void addPassenger(Customer passenger) {
