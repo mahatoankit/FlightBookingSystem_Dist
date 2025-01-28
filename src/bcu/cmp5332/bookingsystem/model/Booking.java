@@ -21,8 +21,8 @@ public class Booking {
     	return customer;
     }
     
-    public void setCustomer(int id, String name, String phone) {
-    	this.customer = new customer(id, name, phone);
+    public void setCustomer(Customer customer) {
+    	this.customer = customer;
     }
     
     public Flight getFlight() {
