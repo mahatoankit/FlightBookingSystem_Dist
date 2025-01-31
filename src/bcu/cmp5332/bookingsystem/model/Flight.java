@@ -84,6 +84,6 @@ public class Flight {
     }
     
     public void addPassenger(Customer passenger) {
-        
+        passengers.add(passenger);
     }
 }
