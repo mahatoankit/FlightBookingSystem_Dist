@@ -45,5 +45,6 @@ public class Customer {
     
     public void addBooking(Booking booking) {
         // TODO: implementation here
+    	bookings.add(booking);
     }
 }

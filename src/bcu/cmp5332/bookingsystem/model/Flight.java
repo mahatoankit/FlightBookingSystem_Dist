@@ -79,8 +79,25 @@ public class Flight {
     }
 
     public String getDetailsLong() {
-        // TODO: implementation here
-        return null;
+        StringBuilder details = new StringBuilder();
+
+        // Add flight details
+        details.append("Flight Details:\n");
+        details.append(this.getDetailsShort()).append("\n\n");
+
+        // Add passenger details
+        details.append("Passengers:\n");
+        List<Customer> passengers = this.getPassengers();
+        if (passengers.isEmpty()) {
+            details.append("No passengers booked yet.");
+        } else {
+            for (int i = 0; i < passengers.size(); i++) {
+                Customer passenger = passengers.get(i);
+                details.append((i + 1)).append(". ").append(passenger.getName()).append(" (ID: ").append(passenger.getId()).append(")\n");
+            }
+        }
+
+        return details.toString();
     }
     
     public void addPassenger(Customer passenger) {
