@@ -17,6 +17,7 @@ public class Booking {
     }
     
     // TODO: implementation of Getter and Setter methods
+    // Done
     public Customer getCustomer() {
     	return customer;
     }
