@@ -48,4 +48,16 @@ public class Customer {
         // TODO: implementation here
     	bookings.add(booking);
     }
+    
+    public void setDeleted() {
+    	this.isDeleted = true;
+    }
+    
+    public boolean getDeleted() {
+    	return this.isDeleted;
+    }
+
+    public String getDetailsShort() {
+        return "Customer #" + this.id + " - " + this.name + " - " + this.phone;
+    }
 }

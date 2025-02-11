@@ -54,4 +54,9 @@ public class FlightBookingSystem {
     	customers.put(customer.getId(), customer);
 
     }
+
+	public List<Customer> getCustomer() {
+		List<Customer> cus = new ArrayList<>(customers.values());
+		return Collections.unmodifiableList(cus);
+	}
 }
