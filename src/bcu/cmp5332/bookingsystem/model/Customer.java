@@ -13,10 +13,11 @@ public class Customer {
     private final List<Booking> bookings = new ArrayList<>();
     
     // TODO: implement constructor here
-    public Customer(int id, String name, String phone) {
+    public Customer(int id, String name, String phone, boolean isDeleted) {
     	this.id = id;
     	this.name = name;
-    	this.phone = phone;    	
+    	this.phone = phone;
+    	this.isDeleted = isDeleted;
     }
     
     // TODO: implementation of Getter and Setter methods
