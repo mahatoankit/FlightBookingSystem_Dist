@@ -4,6 +4,7 @@ import bcu.cmp5332.bookingsystem.commands.LoadGUI;
 import bcu.cmp5332.bookingsystem.commands.ListFlights;
 import bcu.cmp5332.bookingsystem.commands.AddFlight;
 import bcu.cmp5332.bookingsystem.commands.Command;
+import bcu.cmp5332.bookingsystem.commands.ListCustomers;
 import bcu.cmp5332.bookingsystem.commands.Help;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -39,7 +40,7 @@ public class CommandParser {
                 if (line.equals("listflights")) {
                     return new ListFlights();
                 } else if (line.equals("listcustomers")) {
-                    
+                    return new ListCustomers();
                 } else if (line.equals("help")) {
                     return new Help();
                 }
