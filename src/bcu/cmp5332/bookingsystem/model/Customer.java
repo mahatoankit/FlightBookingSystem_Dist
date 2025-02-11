@@ -9,6 +9,7 @@ public class Customer {
     private int id;
     private String name;
     private String phone;
+    private boolean isDeleted = false;
     private final List<Booking> bookings = new ArrayList<>();
     
     // TODO: implement constructor here
