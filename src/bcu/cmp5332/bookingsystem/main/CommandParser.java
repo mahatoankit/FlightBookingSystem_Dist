@@ -1,16 +1,18 @@
 package bcu.cmp5332.bookingsystem.main;
 
-import bcu.cmp5332.bookingsystem.commands.LoadGUI;
-import bcu.cmp5332.bookingsystem.commands.ListFlights;
-import bcu.cmp5332.bookingsystem.commands.AddFlight;
-import bcu.cmp5332.bookingsystem.commands.Command;
-import bcu.cmp5332.bookingsystem.commands.ListCustomers;
-import bcu.cmp5332.bookingsystem.commands.Help;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+
+import bcu.cmp5332.bookingsystem.commands.AddCustomer;
+import bcu.cmp5332.bookingsystem.commands.AddFlight;
+import bcu.cmp5332.bookingsystem.commands.Command;
+import bcu.cmp5332.bookingsystem.commands.Help;
+import bcu.cmp5332.bookingsystem.commands.ListCustomers;
+import bcu.cmp5332.bookingsystem.commands.ListFlights;
+import bcu.cmp5332.bookingsystem.commands.LoadGUI;
 
 public class CommandParser {
     
@@ -18,10 +20,11 @@ public class CommandParser {
         try {
             String[] parts = line.split(" ", 3);
             String cmd = parts[0];
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
             
             if (cmd.equals("addflight")) {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+          
                 System.out.print("Flight Number: ");
                 String flighNumber = reader.readLine();
                 System.out.print("Origin: ");
@@ -33,6 +36,14 @@ public class CommandParser {
 
                 return new AddFlight(flighNumber, origin, destination, departureDate);
             } else if (cmd.equals("addcustomer")) {
+            	
+            	System.out.print("Customer name: ");
+                String name = reader.readLine();
+                System.out.print("Customer phone: ");
+                String phone = reader.readLine();
+                System.out.println("Customer email: ");
+                String email = reader.readLine();
+                return new AddCustomer(name, phone, email);
                 
             } else if (cmd.equals("loadgui")) {
                 return new LoadGUI();

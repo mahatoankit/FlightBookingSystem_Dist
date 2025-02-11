@@ -1,5 +1,7 @@
 package bcu.cmp5332.bookingsystem.commands;
 
+import java.io.IOException;
+
 import bcu.cmp5332.bookingsystem.main.FlightBookingSystemException;
 import bcu.cmp5332.bookingsystem.model.FlightBookingSystem;
 
@@ -20,6 +22,6 @@ public interface Command {
         + "\texit                                      exits the program";
 
     
-    public void execute(FlightBookingSystem flightBookingSystem) throws FlightBookingSystemException;
+    public void execute(FlightBookingSystem flightBookingSystem) throws FlightBookingSystemException, IOException;
     
 }

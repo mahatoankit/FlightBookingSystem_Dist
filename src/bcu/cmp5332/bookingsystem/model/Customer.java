@@ -9,14 +9,16 @@ public class Customer {
     private int id;
     private String name;
     private String phone;
+    private String mail;
     private boolean isDeleted = false;
     private final List<Booking> bookings = new ArrayList<>();
     
     // TODO: implement constructor here
-    public Customer(int id, String name, String phone, boolean isDeleted) {
+    public Customer(int id, String name, String phone, String mail, boolean isDeleted) {
     	this.id = id;
     	this.name = name;
     	this.phone = phone;
+    	this.mail = mail;
     	this.isDeleted = isDeleted;
     }
     
@@ -59,6 +61,14 @@ public class Customer {
     }
 
     public String getDetailsShort() {
-        return "Customer #" + this.id + " - " + this.name + " - " + this.phone;
+        return "Customer #" + this.id + " - " + this.name +" - "+ this.mail + " - " + this.phone;
     }
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
 }

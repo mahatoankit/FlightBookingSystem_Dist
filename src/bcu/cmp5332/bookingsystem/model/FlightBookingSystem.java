@@ -55,8 +55,9 @@ public class FlightBookingSystem {
 
     }
 
-	public List<Customer> getCustomer() {
+	public List<Customer> getCustomers() {
 		List<Customer> cus = new ArrayList<>(customers.values());
 		return Collections.unmodifiableList(cus);
 	}
+
 }
