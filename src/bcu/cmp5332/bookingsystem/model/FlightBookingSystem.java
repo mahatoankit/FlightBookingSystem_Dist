@@ -27,11 +27,20 @@ public class FlightBookingSystem {
         return flights.get(id);
     }
 
+    /**
+     * Retrieves a customer by their ID.
+     *
+     * @param id The ID of the customer to retrieve
+     * @return The customer with the specified ID
+     * @throws FlightBookingSystemException If no customer exists with the given ID
+     */
     public Customer getCustomerByID(int id) throws FlightBookingSystemException {
-        // TODO: implementation here
-        return null;
+        if (!customers.containsKey(id)) {
+            throw new FlightBookingSystemException("There is no customer with that ID: " + id);
+        }
+        return customers.get(id);
     }
-
+    
     public void addFlight(Flight flight) throws FlightBookingSystemException {
         if (flights.containsKey(flight.getId())) {
             throw new IllegalArgumentException("Duplicate flight ID.");
@@ -59,5 +68,21 @@ public class FlightBookingSystem {
 		List<Customer> cus = new ArrayList<>(customers.values());
 		return Collections.unmodifiableList(cus);
 	}
+	
+	public void issueBooking(Customer customer, Flight flight, LocalDate bookingDate) throws FlightBookingSystemException {
+	        if (!customers.containsValue(customer)) {
+	            throw new FlightBookingSystemException("Customer does not exist in the system.");
+	        }
+	        if (!flights.containsValue(flight)) {
+	            throw new FlightBookingSystemException("Flight does not exist in the system.");
+	        }
+	        if (flight.getPassengerCount() >= flight.getCapacity()) {
+	            throw new FlightBookingSystemException("Flight is at full capacity. Cannot issue booking.");
+	        }
+	        Booking booking = new Booking(customer, flight);
+	        customer.addBooking(booking);
+	        flight.addPassenger(customer); // Ensure the flight tracks its passengers
+	    }
+
 
 }

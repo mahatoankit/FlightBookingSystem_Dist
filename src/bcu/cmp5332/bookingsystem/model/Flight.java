@@ -33,8 +33,11 @@ public class Flight {
      * @param origin        The origin of the flight
      * @param destination   The destination of the flight
      * @param departureDate The departure date of the flight
+     * @param capacity 
+     * @param price 
+     * @param isDeleted 
      */
-    public Flight(int id, String flightNumber, String origin, String destination, LocalDate departureDate) {
+    public Flight(int id, String flightNumber, String origin, String destination, LocalDate departureDate, int capacity, double price, boolean isDeleted) {
         this.id = id;
         this.flightNumber = flightNumber;
         this.origin = origin;

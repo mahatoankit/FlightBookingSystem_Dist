@@ -14,6 +14,8 @@ import bcu.cmp5332.bookingsystem.commands.ListCustomers;
 import bcu.cmp5332.bookingsystem.commands.ListFlights;
 import bcu.cmp5332.bookingsystem.commands.LoadGUI;
 import bcu.cmp5332.bookingsystem.commands.ShowFlight;
+import bcu.cmp5332.bookingsystem.commands.ShowCustomer;
+import bcu.cmp5332.bookingsystem.commands.AddBooking;
 
 public class CommandParser {
     
@@ -62,12 +64,15 @@ public class CommandParser {
                 if (cmd.equals("showflight")) {
                     return new ShowFlight(id);
                 } else if (cmd.equals("showcustomer")) {
-               
+               return new ShowCustomer(id);
                 }
             } else if (parts.length == 3) {
+                int custID = Integer.parseInt(parts[1]);
+                int fliID = Integer.parseInt(parts[2]);
+                LocalDate date = parseDateWithAttempts(reader);
                 
-
                 if (cmd.equals("addbooking")) {
+                    return new AddBooking(custID, fliID, date);
                     
                 } else if (cmd.equals("editbooking")) {
                     
