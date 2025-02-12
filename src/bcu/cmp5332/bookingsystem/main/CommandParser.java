@@ -5,10 +5,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import java.util.Scanner;
 
 import bcu.cmp5332.bookingsystem.commands.AddCustomer;
 import bcu.cmp5332.bookingsystem.commands.AddFlight;
+import bcu.cmp5332.bookingsystem.commands.CancelBooking;
 import bcu.cmp5332.bookingsystem.commands.Command;
+import bcu.cmp5332.bookingsystem.commands.EditBooking;
 import bcu.cmp5332.bookingsystem.commands.Help;
 import bcu.cmp5332.bookingsystem.commands.ListCustomers;
 import bcu.cmp5332.bookingsystem.commands.ListFlights;
@@ -37,7 +40,7 @@ public class CommandParser {
 
                 LocalDate departureDate = parseDateWithAttempts(reader);
 
-                return new AddFlight(flighNumber, origin, destination, departureDate);
+                return new AddFlight(flighNumber, origin, destination, departureDate, 0, 0);
             } else if (cmd.equals("addcustomer")) {
             	
             	System.out.print("Customer name: ");
@@ -75,9 +78,23 @@ public class CommandParser {
                     return new AddBooking(custID, fliID, date);
                     
                 } else if (cmd.equals("editbooking")) {
-                    
+               	 Scanner scanner = new Scanner(System.in);
+                 System.out.println("Enter bookingID:");
+                 int bookingID = scanner.nextInt();
+                 scanner.nextLine();
+
+                 System.out.println("Enter newFlightNumber:");
+                 String newFlightNumber = scanner.nextLine();
+
+                 System.out.println("Enter new booking date (YYYY-MM-DD):");
+                 String dateString = scanner.nextLine();
+                 LocalDate newBookDate = LocalDate.parse(dateString);
+                 
+                 return new EditBooking(bookingID, newFlightNumber, newBookDate);
                 } else if (cmd.equals("cancelbooking")) {
-                    
+                	int customerID = Integer.parseInt(parts[1]);
+                	int flightID = Integer.parseInt(parts[2]);
+                    return new CancelBooking(customerID, flightID);
                 }
             }
         } catch (NumberFormatException ex) {
