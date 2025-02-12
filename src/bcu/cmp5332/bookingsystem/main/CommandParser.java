@@ -13,6 +13,7 @@ import bcu.cmp5332.bookingsystem.commands.Help;
 import bcu.cmp5332.bookingsystem.commands.ListCustomers;
 import bcu.cmp5332.bookingsystem.commands.ListFlights;
 import bcu.cmp5332.bookingsystem.commands.LoadGUI;
+import bcu.cmp5332.bookingsystem.commands.ShowFlight;
 
 public class CommandParser {
     
@@ -41,7 +42,7 @@ public class CommandParser {
                 String name = reader.readLine();
                 System.out.print("Customer phone: ");
                 String phone = reader.readLine();
-                System.out.println("Customer email: ");
+                System.out.print("Customer email: ");
                 String email = reader.readLine();
                 return new AddCustomer(name, phone, email);
                 
@@ -59,9 +60,9 @@ public class CommandParser {
                 int id = Integer.parseInt(parts[1]);
 
                 if (cmd.equals("showflight")) {
-                    
+                    return new ShowFlight(id);
                 } else if (cmd.equals("showcustomer")) {
-                    
+               
                 }
             } else if (parts.length == 3) {
                 

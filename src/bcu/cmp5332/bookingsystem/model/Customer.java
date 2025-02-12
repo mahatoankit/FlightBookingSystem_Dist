@@ -71,4 +71,26 @@ public class Customer {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
+    public void showDetails() {
+        System.out.println("Customer ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Phone Number: " + phone);
+
+        System.out.println("Bookings:");
+        for (Booking booking : bookings) {
+            System.out.println("  Booking ID: " + booking.getId());
+            System.out.println("  Outbound Flight: " + booking.getOutboundFlight().getFlightNumber() +
+                    " From: " + booking.getOutboundFlight().getOrigin() +
+                    " To: " + booking.getOutboundFlight().getDestination() +
+                    " Date: " + booking.getOutboundFlight().getDepartureDate() +
+                    " Price: " + booking.getOutboundFlight().getPrice());
+            if (booking.getReturnFlight() != null) {
+                System.out.println("  Return Flight: " + booking.getReturnFlight().getFlightNumber() +
+                        " From: " + booking.getReturnFlight().getOrigin() +
+                        " To: " + booking.getReturnFlight().getDestination() +
+                        " Date: " + booking.getReturnFlight().getDepartureDate() +
+                        " Price: " + booking.getReturnFlight().getPrice());
+            }
+        }
+    }
 }
